@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+        }
+    }
+    sourceSets{
+        main {
+            jni.srcDirs = []
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion '26.0.2'
+    defaultConfig {
+        applicationId "com.wwc2.networks"
+        minSdkVersion 23
+        targetSdkVersion 25
+        versionCode 33060
+        versionName "3.3.06.0"
+        multiDexEnabled true
+        ndk {
+            abiFilters 'armeabi', 'armeabi-v7a'//, 'arm64-v8a'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "e5b59f69a212a78d66bf9d14",
+                JPUSH_CHANNEL: "developer-default",
+        ]
+    }
+    greendao {
+        schemaVersion 11
+        targetGenDir 'src/main/java'
+        daoPackage 'com.wwc2.networks.server.provider.greendao'
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                //这里修改apk文件名
+                outputFileName = "CarNetworks_" + variant.getVersionName() + ".apk"
+            }
+            if (outputFile != null && outputFile.name.endsWith('debug.apk')) {
+                //这里修改apk文件名
+                outputFileName = "CarNetworks-debug_" + variant.getVersionName() + ".apk"
+            }
+        }
+    }
+}
+
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn CopyToJniLibs
+//}
+//task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkDir = properties.getProperty('ndk.dir')
+//    commandLine "$ndkDir/ndk-build", "NDK_PROJECT_PATH=$projectDir.absolutePath/build", "APP_BUILD_SCRIPT=$projectDir.absolutePath/src/main/jni/Android.mk", "NDK_APPLICATION_MK=$projectDir.absolutePath/src/main/jni/Application.mk"
+//}
+//task CopyToJniLibs(type: Copy, dependsOn: 'ndkBuild', description: 'copy the native libs to jniLibs') {
+//    from fileTree(dir: file(buildDir.absolutePath + '/libs'), include: '**/*.so')
+//    into file('libs')//存放so的路径
+//}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    provided files('libs/classes.jar')
+    implementation files('libs/AMapSearch_6.5.0_AMapLocation_4.6.0_20190423.jar')
+    implementation 'com.qiniu:qiniu-android-sdk:7.3.3'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'me.jessyan:progressmanager:1.5.0'
+    implementation 'io.netty:netty-all:4.1.42.Final'
+    implementation 'com.wwc2.canbus_interface:canbus_interface:1.0.160'
+    implementation project(path: ':IMLib')
+    implementation project(path: ':rtc_rongyunlibs')
+
+    repositories {
+        maven { url "http://192.168.10.168:8081/repository/maven-releases/" }
+    }
+
+}

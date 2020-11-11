@@ -1,0 +1,179 @@
+版本：V3.3.06.0 TAG：V3.3.06.0_20201105
+1:更新rongyun IM版本,支持自定义心跳.
+2:添加手动刷新acc和定位指令9016
+3:修改G-sensor碰撞无效问题.
+
+版本：V3.3.03.0 TAG：V3.3.03.0_20200927
+1:修改没有打开DVR的时候,出现报错
+
+版本：V3.3.02.0 TAG：V3.3.02.0_20200927
+1:增加rongyun只有在注册的时候,才启动.
+
+版本：V3.3.01.0 TAG：V3.3.01.0_20200923
+1:增加360 dvr 远程功能
+
+版本：V3.2.93.0 TAG：V3.2.93.0_20200909
+1:增加单录和双录功能。
+
+版本：V3.2.92.0 TAG：V3.2.92.0_20200901
+1:修改里程在直接掉电的情况下丢失问题
+
+版本：V3.2.91.0 TAG：V3.2.91.0_20200828
+1:在每个GPS点后面添加里程
+2:修改里程相关单位和后台一致
+
+版本：V3.2.89.0 TAG：V3.2.89.0_20200821
+1:rongyun 修改推视频文件爱你出现,一直在房间,但无法得到房间号码,导致无法推出房间问题.
+2:在推视频文件的时候,如果出现推送失败,重启CarNetWork服务,并且重启音视频分离器media.extractor(配合系统修改)
+
+版本：V3.2.88.0 TAG：V3.2.88.0_20200807
+1:添加21V acc off,手机不显示停车功能.
+
+版本：V3.2.87.0 TAG：V3.2.87.0_20200804
+1:修改和Driver 推流的通讯方式,解决400次出现无法推流问题.
+
+版本：V3.2.86.0 TAG：V3.2.86.0_20200724
+1:修改ACC OFF 出现推流只有声音的问题.
+
+版本：V3.2.85.0 TAG：V3.2.85.0_20200723
+1:更新RongRTCLib_3.2.2.3.解决远程推流,音乐播放声音变小问题.
+
+版本：V3.2.84.0 TAG：V3.2.84.0_20200709
+1:解决远程push app之后,acc off 无法拍照问题.
+
+版本：V3.2.83.0 TAG：V3.2.83.0_20200707
+1:添加注册回调stats,控制app 上传信息.
+2:添加一位版本号码用来测试.
+
+版本：V3.2.64 TAG：V3.2.64_20200623
+1:更新RongRTCLib_3.2.2.2,解决回放出现卡死问题.
+2:分开处理实施推流和视频回放.
+
+版本：V3.2.63 TAG：V3.2.63_20200617
+1:更新RongRTCLib_3.2.2.1,解决不能远程播放无音轨视频文件.
+2:添加四合一视频支持.
+
+版本：V3.2.60 TAG：V3.2.60_20200608
+1:添加rongyun 通过Json 方式删除文件.
+
+版本：V3.2.59 TAG：V3.2.59_20200501
+1:添加getPlatformType字段来分区不同的项目.
+
+版本：V3.2.57 TAG：V3.2.57_20200211
+1:修改没有网络连接的时候,G-SENSOR 拍照失败
+2:G-Sensor Level设置不同步问题,以车机准.
+
+版本：V3.2.55 TAG：V3.2.55_20200430
+1:reback rongyu push stream to mmap
+2:gps Framebuf may send many time ,when send error
+3:add four camera support
+
+版本：V3.2.47 TAG：V3.2.47_20200316
+1:modify the camera switch for ch006_15
+
+版本：V3.2.46 TAG：V3.2.46_20200118
+1:update rongyulib for cannot release the video file FD
+
+版本：V3.2.45 TAG：V3.2.45_20200117
+1:acc off take Local video ,need  wait U-disk mount finish.
+
+版本：V3.2.44 TAG：V3.2.44_20200116
+1:take LocalVideo is 3,cannot check camera support
+
+版本：V3.2.42 TAG：V3.2.42_20200116
+1:for app crash . release the wackeLock..
+
+版本：V3.2.41 TAG：V3.2.41_20200116
+1:for may DVR reboot,when get CameraNumber.
+
+版本：V3.2.40 TAG：V3.2.40_20200116
+1:for may DVR exception ,cannot sleep
+
+版本：V3.2.39 TAG：V3.2.39_20200115
+1:add the DVR settings sync  to Network service at once & sync again  when fail .
+
+版本：V3.2.38 TAG：V3.2.38_20200113
+1:Add the Camera support check,user 2 ways. just update info in powerOn.
+
+版本：V3.2.37 TAG：V3.2.37_2020106
+1:Add the Camera support check, when take picture or take video
+
+版本：V3.2.36 TAG：V3.2.36_2020103
+1. mutemicphone when publish Local Video, for some time may can listen voice form car
+
+版本：V3.2.35 TAG：V3.2.35_20191223
+1. modify the GPS update use the frame format.
+2: move the single detect.when enter the Video for front camera.
+3: modify the may connect fail, And connect may time.
+
+版本：V3.2.34 TAG：V3.2.33_20191212
+1. modify the beat time to 10min.
+2: modify the web switch camera ,maybe fail problem .
+
+版本：V3.2.32 TAG：V3.2.32_20191204
+1.update RongRTCLib_3.1.5.jar for local video push .
+2:modify the key for product .
+
+版本：V3.2.31 TAG：V3.2.31_20191128
+1.branch from wwc2_dvr patch  RONG VP8
+
+版本：V3.2.30 TAG：V3.2.30_20191127
+1.修改Accon 不重启CarNetworkService
+2: 添加Alarm Rtc for netty 心跳
+
+版本：V3.2.26 TAG：V3.2.26_20191121
+1.添加同时处理２条takeLive cmd情况。
+
+版本：V3.2.25 TAG：V3.2.25_20191120
+1.添加网络josn格式和并且添加wakeup watch dog
+
+版本：V3.1.1 TAG：V3.1.1_20191119
+1.Merge from dev branch modify. add new cmdManager Machine.
+
+版本：V3.0.17 TAG：V3.0.17_20191104
+1.合并dev最新代码
+2.屏蔽log,恢复uri,新增碰撞检测逻辑
+
+版本：V3.0.16 TAG：V3.0.16_20191101
+1.合并dev分之最新代码.10-31(GPS除外)
+2.解决视频直播和拍照不稳定问题。
+
+版本：V3.0.15 TAG：V3.0.15_20191028
+1.合并dev分之最新代码.10-28
+2.优化直播过程中网络中断逻辑
+3.新增常连接维护ACC状态
+4.解决直播功能重复进入房间偶尔会失败问题
+
+版本：V3.0.14 TAG：V3.0.14_20191023
+1.更新融云IM版本为2.9.24稳定版
+2.修复实时预览离线模式无法播放问题
+3.优化ACC_ON后马上拍照,概率性失败问题
+
+版本：V3.0.13 TAG：V3.0.13_20191023
+1.统一更新融云SDK版本:3.1.3
+2.更新实时视屏查看流程,对应手机版本1.1.3,同步房间逻辑
+3.修复消息格式,解决"设备已占用"发送格式错误问题
+
+版本：V3.0.12 TAG：V3.0.12_20191017
+1.修改远程拍照部分提示语
+2.新增手机端实时预览
+
+版本：V3.0.11 TAG：V3.0.11_20190929
+1.移除can_bus报警模块
+2.更新融云SDK，新增DVR列表+APK监控功能
+
+版本：V3.0.10 TAG：V3.0.10_20190920
+1.修复异常中断DVR连接，无法重连问题
+2.修复深休眠拍照超时问题
+
+版本：V3.0.9 TAG：V3.0.9_20190917
+1.初始化DVR+远程唤醒版本
+2.切换消息通道为融云SDK
+3.同步ch009开发版最新代码
+
+版本：V3.0.8 TAG：V3.0.8_20190912
+1.剥离及修改图片上传方式（BASE64）
+
+版本：V3.0.7 TAG：V3.0.7_20190910
+1.优化深休及AIDL逻辑
+2.修改拍照逻辑

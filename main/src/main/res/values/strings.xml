@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Android GPS Service</string>
+    <string name="tips">升级完成后，请下拉顶部菜单，点击重启系统。</string>
+</resources>
